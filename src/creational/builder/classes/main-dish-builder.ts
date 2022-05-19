@@ -7,6 +7,9 @@ import { Rice, Beans, Meat, Beverage, Dessert } from './meals';
 
 export class MainDishBuilder
   implements MealBuilderMeal, MealBuilderBeverage, MealBuilderDesseret {
+  makeDessertDiscount(): this {
+    throw new Error('Method not implemented.');
+  }
   private _meal: MealBox = new MealBox();
 
   reset(): this {
@@ -15,21 +18,21 @@ export class MainDishBuilder
   }
 
   makeMeal(): this {
-    const rice = new Rice('Arroz', 5);
-    const beans = new Beans('Feijão', 10);
-    const meat = new Meat('Carne', 20);
+    const rice = new Rice('Arroz', 5, 10);
+    const beans = new Beans('Feijão', 10, 5);
+    const meat = new Meat('Carne', 20, 2);
     this._meal.add(rice, beans, meat);
     return this;
   }
 
   makeBeverage(): this {
-    const beverage = new Beverage('Bebida', 7);
+    const beverage = new Beverage('Bebida', 7, 0);
     this._meal.add(beverage);
     return this;
   }
 
   makeDessert(): this {
-    const dessert = new Dessert('Sobremesa', 10);
+    const dessert = new Dessert('Sobremesa', 10, 0);
     this._meal.add(dessert);
     return this;
   }
@@ -40,5 +43,9 @@ export class MainDishBuilder
 
   getPrice(): number {
     return this._meal.getPrice();
+  }
+
+  getDiscount(): number {
+    return this._meal.getDiscount();
   }
 }

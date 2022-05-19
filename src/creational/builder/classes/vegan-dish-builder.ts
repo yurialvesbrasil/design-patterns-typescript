@@ -11,8 +11,8 @@ export class VeganDishBuilder implements MealBuilderMeal {
   }
 
   makeMeal(): this {
-    const rice = new Rice('Arroz', 5);
-    const beans = new Beans('Feijão', 10);
+    const rice = new Rice('Arroz', 5, 0);
+    const beans = new Beans('Feijão', 10, 0);
     this._meal.add(rice, beans);
     return this;
   }

@@ -7,6 +7,10 @@ export class MealBox implements MealCompositeProtocol {
     return this._children.reduce((sum, meal) => sum + meal.getPrice(), 0);
   }
 
+  getDiscount(): number {
+    return this._children.reduce((sum, meal) => sum + meal.getDiscount(), 0);
+  }
+
   add(...meal: MealCompositeProtocol[]): void {
     meal.forEach((item) => this._children.push(item));
   }
