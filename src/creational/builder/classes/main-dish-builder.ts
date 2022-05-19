@@ -1,8 +1,12 @@
-import { MealBuilderProtocol } from '../interfaces/meal-builder-protocol';
+/* eslint-disable prettier/prettier */
+import { MealBuilderBeverage } from '../interfaces/meal-builder-beverage';
+import { MealBuilderDesseret } from '../interfaces/meal-builder-dessert';
+import { MealBuilderMeal } from '../interfaces/meal-builder-meal';
 import { MealBox } from './meal-box';
 import { Rice, Beans, Meat, Beverage, Dessert } from './meals';
 
-export class MainDishBuilder implements MealBuilderProtocol {
+export class MainDishBuilder
+  implements MealBuilderMeal, MealBuilderBeverage, MealBuilderDesseret {
   private _meal: MealBox = new MealBox();
 
   reset(): this {

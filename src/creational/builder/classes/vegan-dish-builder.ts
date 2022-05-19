@@ -1,8 +1,8 @@
-import { MealBuilderProtocol } from '../interfaces/meal-builder-protocol';
+import { MealBuilderMeal } from '../interfaces/meal-builder-meal';
 import { MealBox } from './meal-box';
 import { Rice, Beans } from './meals';
 
-export class VeganDishBuilder implements MealBuilderProtocol {
+export class VeganDishBuilder implements MealBuilderMeal {
   private _meal: MealBox = new MealBox();
 
   reset(): this {
